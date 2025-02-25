@@ -1,0 +1,85 @@
+section {
+  margin: 50px auto 100px;
+  width: 600px;
+
+  border: 1px solid #343231;
+  border-radius: 20px;
+  box-shadow: -2px 2px 0px 0px #343231;
+  padding: 40px;
+}
+
+section h1 {
+  margin-bottom: 20px;
+}
+
+form select[name="categoryId"] {
+  background-color: #e2d8fa !important;
+}
+
+form>div:first-of-type {
+  display: flex;
+
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+textarea+div {
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: flex-end;
+}
+
+/* 취향*/
+#taste-container {
+  margin-bottom: 20px;
+}
+
+.category-div {
+
+  border: 1px solid #343231;
+  border-radius: 20px;
+
+  padding: 10px 20px 20px;
+
+}
+
+.field-ul {
+  display: flex;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.field-ul>h4 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+}
+
+.taste-ul {
+  display: flex;
+  gap: 5px;
+
+  flex-wrap: wrap;
+}
+
+.taste-ul input {
+  font-size: 1em;
+  padding: 5px 10px;
+  font-weight: 400;
+  background-color: #e2d8fa;
+}
+
+/*버튼들*/
+form .btns {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btns button {
+  background-color: #ECE9E2;
+}

@@ -1,0 +1,40 @@
+main .main-content {
+  margin: 50px auto 100px;
+
+}
+
+section {
+  border: 1px solid #343231;
+  border-radius: 20px;
+  box-shadow: -2px 2px 0px 0px #343231;
+  padding: 40px;
+  margin-bottom: 20px;
+}
+
+section h1 {
+  margin-bottom: 20px;
+}
+
+/*--------------------------------*/
+form select[name="cid"] {
+  background-color: #e2d8fa !important;
+
+}
+
+form select[name="so"] {
+  background-color: #e4f0e6 !important;
+
+}
+
+/* 글목록 섹션----------------------------- */
+#post-section {
+  margin: 0 auto 40px;
+  width: 530px;
+}
+
+#post-section>div:first-of-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+}

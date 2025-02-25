@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//-mybatis.org// DTD Mapper 3.0//En" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="postMapper">
+
+<!-- 글 삭제 -->
+	<delete id="deletePost" parameterType="int">
+		delete from post
+    where post_id = #{postId} 
+	</delete>
+
+<!-- 글 수정 -->
+	<update id="updatePost" parameterType="postDto">
+		UPDATE post
+		SET 
+    	category_id = #{categoryId},
+    	title = #{title},
+    	content = #{content},
+    	meeting_date = #{meetingDate}
+    where post_id = #{postId} 
+	</update>
+	
+
+	<!-- 글쓰기 -->
+	<insert id="writePost" parameterType="postDto" 
+	 useGeneratedKeys="true" keyProperty="postId" keyColumn="post_id">
+		insert into post(category_id, title, member_id, content, meeting_date )
+		values(#{categoryId}, #{title}, #{memberId}, #{content}, #{meetingDate})
+	</insert>
+
+	<!-- 댓글 삭제 -->
+	<delete id="deleteComm" parameterType="commDto">
+		delete from comm
+    where comm_id = #{commId} 
+	</delete>
+	
+	<!-- 댓글 수정 -->
+	<update id="updateComm" parameterType="commDto">
+		UPDATE comm
+		SET 
+    	content = #{content}
+    where comm_id = #{commId} 
+	</update>
+
+	<!-- 댓글쓰기 -->
+	<insert id="writeComm" parameterType="commDto">
+		insert into comm(post_id, member_id, content)
+		values(#{postId}, #{memberId}, #{content})
+	</insert>
+
+	<!-- 글 아이디로 글 가져오기 -->
+	<select id="getPostByPostId" parameterType="int" resultType="postDto">
+		select *
+		from post
+		where post_id = #{postId}
+	</select>
+	
+	<!-- 게시글 검색 + 페이징-->
+	<select id="searchPost" parameterType="map" resultType="postDto">
+    SELECT *
+    FROM (
+        SELECT post.*, ROW_NUMBER() OVER (ORDER BY post_id DESC) AS rnum
+        FROM post
+        WHERE 1=1
+        <if test="all != null and all != ''">
+            AND (title LIKE ('%' || #{all} || '%')
+            OR member_id LIKE ('%' || #{all} || '%')
+            OR content LIKE ('%' || #{all} || '%'))
+        </if>
+        <if test="title != null and title != ''">
+            AND title LIKE ('%' || #{title} || '%')
+        </if>
+        <if test="memberId != null and memberId != ''">
+            AND member_id LIKE ('%' || #{memberId} || '%')
+        </if>
+        <if test="content != null and content != ''">
+            AND content LIKE ('%' || #{content} || '%')
+        </if>
+        <if test="categoryId != null and categoryId != 0">
+            AND category_id = #{categoryId}
+        </if>
+    )
+    WHERE rnum BETWEEN #{startRow} AND #{endRow}
+</select>
+
+	<!-- 검색 결과 게시글 수 -->
+	<select id="getSearchPostCount" parameterType="map" resultType="int">
+    SELECT count(post_id)
+    FROM post
+    WHERE 1=1
+    <if test="all != null and all != ''">
+        AND (title LIKE ('%' || #{all} || '%')
+        OR member_id LIKE ('%' || #{all} || '%')
+        OR content LIKE ('%' || #{all} || '%'))
+    </if>
+    <if test="title != null and title != ''">
+        AND title LIKE ('%' ||  #{title} || '%')
+    </if>
+    <if test="memberId != null and memberId != ''">
+        AND member_id LIKE ('%' ||  #{memberId} || '%')
+    </if>
+    <if test="content != null and content != ''">
+        AND content LIKE ('%' ||  #{content} || '%')
+    </if>
+    <if test="categoryId != null and categoryId !=0">
+        AND category_id = #{categoryId}
+    </if>
+</select>
+
+	<!-- 회원이 쓴 글 모두 가져오기. 카테고리명 포함 + 페이징 -->
+	<select id="getMemberPostAll" parameterType="map" resultType="postDto">
+    SELECT *
+    FROM (
+        SELECT p.*, 
+               C.CATEGORY_NAME,
+               ROW_NUMBER() OVER (ORDER BY P.POST_ID DESC) AS RNUM
+        FROM POST P 
+        JOIN CATEGORY C 
+          ON P.CATEGORY_ID = C.CATEGORY_ID
+        WHERE P.MEMBER_ID = #{memberId}
+    ) 
+    WHERE RNUM BETWEEN #{startRow} AND #{endRow}
+	</select>
+
+	<!-- 회원이 쓴 글 수-->
+	<select id="getMemberPostCount" parameterType="String" resultType="int">
+    SELECT COUNT(*)
+    FROM post
+    WHERE MEMBER_ID = #{memberId}
+	</select>
+	
+	<!-- 회원이 쓴 댓글 모두 가져오기 + 페이징-->
+	<select id="getMemberCommAll" parameterType="map" resultType="commDto">
+		SELECT *
+    FROM (
+        SELECT ROW_NUMBER() OVER (ORDER BY upload_time DESC) AS rn, c.*
+        FROM comm c
+        WHERE c.MEMBER_ID = #{memberId}
+    )
+    WHERE rn BETWEEN #{startRow} AND #{endRow}
+	</select>
+	
+	<!-- 회원이 쓴 댓글 수-->
+	<select id="getMemberCommCount" parameterType="String" resultType="int">
+    SELECT COUNT(*)
+    FROM comm
+    WHERE MEMBER_ID = #{memberId}
+	</select>
+
+	<!-- 글에 달린 댓글 가져오기 -->
+	<select id="getCommOnThePost" parameterType="int" resultType="commDto">
+		select * 
+		from comm 
+		where post_id = #{postId}
+		order by comm_id
+	</select>
+	
+	<!-- 글에 달린 댓글수 가져오기 -->
+	<select id="getCommCountOnThePost" parameterType="int" resultType="int">
+		select count(*) 
+		from comm 
+		where post_id = #{postId}
+	</select>
+</mapper>

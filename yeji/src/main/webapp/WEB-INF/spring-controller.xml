@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<context:component-scan	base-package="yeji.*" />
+
+	<bean id="property"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="/WEB-INF/db.properties" />
+	</bean>
+	
+	<!-- 1. db연결 정보 -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<property name="driverClass" value="${driver}" />
+		<property name="url" value="${url}" />
+		<property name="username" value="${username}" />
+		<property name="password" value="${password}" />
+	</bean>
+	
+	<!-- 2. 마이바티스 db 연결 -->
+	<bean id="sqlSessionFactoryBean"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation"
+			value="/WEB-INF/SqlMapConfig.xml" />
+	</bean>
+	
+	<!-- 3. SqlSessionTemplate 객체 생성 -->
+	<bean id="sqlSessionTemplate"
+		class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactoryBean" />
+	</bean>
+	
+	<bean id="memDao" class="yeji.DAO.MemberDaoImple">
+		<property name="ss" ref="sqlSessionTemplate" />
+	</bean>
+	<bean id="postDao" class="yeji.DAO.PostDaoImple">
+		<property name="ss" ref="sqlSessionTemplate" />
+	</bean>
+	<bean id="tasteDao" class="yeji.DAO.TasteDaoImple">
+		<property name="ss" ref="sqlSessionTemplate" />
+	</bean>
+	
+</beans>

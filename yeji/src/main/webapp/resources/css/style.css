@@ -1,0 +1,242 @@
+body {
+  background-color: #ECE9E2;
+  --height: 750px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #343231;
+}
+
+header {
+  height: 80px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  position: relative;
+
+  border-bottom: 1px solid #343231;
+}
+
+.header-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  max-width: 1200px;
+  margin: 20px 30px;
+}
+
+#logo {
+  font-weight: bold;
+  font-size: 28px;
+  color: #343231;
+  text-decoration: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  /* 대문자 */
+  background-color: #F7D3D3;
+  /* 배경색 */
+}
+
+.nav-links {
+  display: flex;
+  gap: 10px;
+  /* 각 링크 사이 간격 */
+}
+
+.nav-item {
+  font-size: 15px;
+}
+
+main {
+
+
+  margin: 35px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+section h1 {
+  font-weight: 700;
+  font-size: 1.5em;
+
+  margin-bottom: 10px;
+}
+
+section h3 {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+section h4 {
+  font-size: 1.05em;
+  font-weight: 500;
+}
+
+footer {
+
+  background-color: rgb(69, 69, 69);
+  margin-bottom: 0;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px;
+}
+
+button,
+input[type="submit"],
+a {
+  all: unset;
+  /* 모든 기본 스타일 제거 */
+  display: inline-block;
+  /* 기본 레이아웃 설정 */
+  font-family: 'Noto Sans KR', sans-serif;
+  cursor: pointer;
+}
+
+
+/* 버튼 스타일---------------------------------- */
+.button,
+button,
+input[type="submit"] {
+  background-color: #F7D3D3;
+  cursor: pointer;
+  border: 1px solid #343231;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 1.125rem;
+  font-weight: 500;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.button:hover,
+.button:focus,
+.button:focus-visible {
+  outline: none;
+
+  /* 기본 테두리 제거 */
+  box-shadow: -2px 2px 0px 0px #343231;
+
+}
+
+
+/* 입력 필드 스타일------------------------------------- */
+.input {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #343231;
+  border-radius: 25px;
+  outline: none;
+  font-family: 'Noto Sans KR', sans-serif;
+  /* 원하는 폰트 */
+}
+
+.input:focus {
+  box-shadow: -2px 2px 0px 0px #343231;
+}
+
+.input:read-only,
+.button:disabled {
+
+  background-color: #ECE9E2;
+}
+
+
+
+input[type="reset"] {
+  background-color: #ECE9E2;
+}
+
+textarea {
+  width: 100%;
+  overflow: auto;
+  /* 스크롤 허용 */
+  box-sizing: border-box;
+  min-height: 100px;
+}
+
+/*라디오버튼, 체크박스 스타일---------------------------*/
+/* 라디오 버튼 숨기기 */
+.hidden-radio,
+.hidden-checkbox {
+  display: none;
+}
+
+/* 라벨 스타일링 */
+.styled-radio,
+.styled-checkbox {
+
+
+  border: 1px solid #343231;
+  border-radius: 25px;
+  padding: 10px 15px;
+  background-color: #ECE9E2;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* 선택된 상태 스타일 */
+.hidden-radio:checked+.styled-radio,
+.hidden-checkbox:checked+.styled-checkbox {
+  background-color: #F7D3D3;
+  box-shadow: inset -2px 2px 0px 0px #343231;
+}
+
+/* 라디오 버튼에 마우스를 올렸을 때 효과 */
+.styled-radio:hover,
+.styled-checkbox:hover {
+  box-shadow: -2px 2px 0px 0px #343231;
+}
+
+/* 테이블 -------------------- */
+table {
+  border-collapse: collapse;
+  /* 테이블 셀 간 간격 제거 */
+  border-top: 1.5px solid #343231;
+  border-bottom: 1.5px solid #343231;
+  margin: 0 auto;
+  width: 100%;
+  table-layout: auto;
+  /* 기본값 */
+}
+
+thead {
+  border-bottom: 1px solid #343231;
+  /* 테두리 두께와 색상 지정 */
+
+}
+
+thead>tr {
+  background-color: #F7D3D3;
+}
+
+th {
+  font-weight: bold;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+}
+
+tr:hover {
+  background-color: #F7D3D3;
+}
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.pagination .active {
+  font-weight: bold;
+}

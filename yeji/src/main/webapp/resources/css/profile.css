@@ -1,0 +1,191 @@
+input[type="reset"] {
+  background-color: #ECE9E2;
+}
+
+main .main-content {
+  margin: 50px auto 100px;
+
+}
+
+section {
+  border: 1px solid #343231;
+  border-radius: 20px;
+  box-shadow: -2px 2px 0px 0px #343231;
+  padding: 40px;
+  margin-bottom: 40px;
+}
+
+section h1 {
+  margin-bottom: 20px;
+}
+
+/* 프로필 섹션----------------------------- */
+#profile-section {
+  margin: 0 auto 40px;
+  width: 530px;
+}
+
+#profile-section>div:first-of-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+}
+
+#profile-section>div:last-of-type {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 100px 150px 100px 150px;
+  grid-template-areas: 'a b c d'
+    'e f g h'
+    'i j k l';
+  align-items: center;
+}
+
+
+
+#profile-section label[for="user-id"] {
+  grid-area: a;
+}
+
+#profile-section #id-input {
+  grid-area: b;
+}
+
+#profile-section label[for="user-gender"] {
+  grid-area: e;
+}
+
+#profile-section #user-gender {
+  grid-area: f;
+}
+
+#profile-section label[for="user-birth"] {
+  grid-area: i;
+}
+
+#profile-section #user-birth {
+  grid-area: j;
+}
+
+#profile-section label[for="user-regdate"] {
+  grid-area: c;
+}
+
+#profile-section #user-regdate {
+  grid-area: d;
+}
+
+#profile-section label[for="user-postCount"] {
+  grid-area: g;
+}
+
+#profile-section #user-postCount {
+  grid-area: h;
+}
+
+#profile-section label[for="user-commCount"] {
+  grid-area: k;
+}
+
+#profile-section #user-commCount {
+  grid-area: l;
+}
+
+/* 취향 섹션----------------------------- */
+#taste-list-div>div:first-of-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+}
+
+#taste-list-div>div:last-of-type {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+h4 {
+  font-size: 1.1em;
+  font-weight: 500;
+
+
+}
+
+.category-div {
+
+  border: 1px solid #343231;
+  border-radius: 20px;
+
+  padding: 10px 20px 20px;
+  text-align: center;
+  width: 150px;
+  margin-right: 10px;
+}
+
+/* 첫 번째 배경색 */
+.category-div:nth-child(3n+1) {
+  background-color: #F7D3D3;
+  /* 첫 번째 색 */
+}
+
+/* 두 번째 배경색 */
+.category-div:nth-child(3n+2) {
+  background-color: #e4f0e6;
+  /* 두 번째 색 */
+}
+
+/* 세 번째 배경색 */
+.category-div:nth-child(3n) {
+  background-color: #e2d8fa;
+  margin-right: 0;
+  /* 세 번째 색 */
+}
+
+.category-div h3 {
+  font-size: 1.2em;
+  font-weight: 600;
+  text-align: center;
+}
+
+.field-ul>li {
+  margin-bottom: 5px;
+}
+
+/* 취향 폼--------------------------- */
+.form-category {
+  width: 550px;
+
+  margin: 0 30px 30px;
+}
+
+.taste-check-div {
+  column-gap: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  row-gap: 25px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.taste-check-div .styled-checkbox {
+  margin: 10px 0;
+}
+
+
+.field-ul {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* 글, 댓글 섹션----------------------------- */
+#post-comm {
+  display: flex;
+
+  flex-wrap: wrap;
+  gap: 20px;
+}

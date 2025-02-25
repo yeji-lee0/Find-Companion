@@ -1,0 +1,60 @@
+#login-div {
+  margin: 50px auto 100px;
+  height: 100%;
+  width: 300px;
+  border: 1px solid #343231;
+  border-radius: 20px;
+  box-shadow: -2px 2px 0px 0px #343231;
+  padding: 40px;
+}
+
+#login-div h1 {
+  margin-bottom: 20px;
+}
+
+.msg {
+
+  font-size: 0.9em;
+  background-color: #fdadc6;
+  color: black;
+  box-shadow: -2px 2px 0px 0px #343231;
+}
+
+/* ------------------------------------- */
+form {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 100px 190px;
+  grid-template-areas:
+    'a b'
+    'c d'
+    'e e'
+    'f f';
+  align-items: center;
+
+}
+
+form label[for="id-input"] {
+  grid-area: a;
+}
+
+form #id-input {
+  grid-area: b;
+}
+
+label[for="password-input"] {
+  grid-area: c;
+}
+
+form #password-input {
+  grid-area: d;
+}
+
+form .msg {
+  grid-area: e;
+}
+
+form input[type="submit"] {
+  grid-area: f;
+  text-align: center;
+}

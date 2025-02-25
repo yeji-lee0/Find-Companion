@@ -1,0 +1,105 @@
+input[type="reset"] {
+  background-color: #ECE9E2;
+}
+
+main .main-content {
+  margin: 50px auto 100px;
+
+}
+
+section {
+  border: 1px solid #343231;
+  border-radius: 20px;
+  box-shadow: -2px 2px 0px 0px #343231;
+  padding: 40px;
+  margin-bottom: 20px;
+}
+
+section h1 {
+  margin-bottom: 10px;
+}
+
+section h3 {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+section h4 {
+  font-size: 1.05em;
+  font-weight: 500;
+}
+
+/*-글 상세------------------------*/
+#post-section h3+div {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+#post-section h1+div a {
+  margin-right: 5px;
+}
+
+#post-section>nav {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+#post-section .input {
+  background-color: white;
+}
+
+#post-section>div {
+  margin-bottom: 10px;
+}
+
+
+.field-ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.field-ul>li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+}
+
+
+.taste-ul {
+  display: flex;
+  gap: 5px;
+
+  flex-wrap: wrap;
+}
+
+.taste-ul li {
+  font-size: 1em;
+  padding: 5px 10px;
+  font-weight: 400;
+  background-color: #e2d8fa;
+}
+
+/* 댓글 부분--------------------------- */
+#comm-section tr:hover {
+  background: transparent;
+}
+
+#comm-section tr td:first-of-type {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+#comm-section tr td:last-of-type {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}

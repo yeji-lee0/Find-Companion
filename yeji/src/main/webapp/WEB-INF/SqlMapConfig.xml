@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration 
+PUBLIC "-//-mybatis.org// DTD Config 3.0//En" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<settings>
+    <setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
+	
+	 <typeAliases >
+		<typeAlias type="yeji.DTO.MemberDto" alias="memDto"/>
+		<typeAlias type="yeji.DTO.PostDto" alias="postDto"/>
+		<typeAlias type="yeji.DTO.CommDto" alias="commDto"/>
+		<typeAlias type="yeji.DTO.TasteDto" alias="tasteDto"/>
+	</typeAliases> 
+	
+	<mappers>
+		<mapper resource="yeji/resource/memberMapper.xml"/>
+		<mapper resource="yeji/resource/postMapper.xml"/>
+		<mapper resource="yeji/resource/tasteMapper.xml"/>
+	</mappers>
+	
+</configuration>

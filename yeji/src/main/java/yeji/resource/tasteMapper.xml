@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//-mybatis.org// DTD Mapper 3.0//En" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tasteMapper">
+
+	<!-- 게시글의 모든 취향 삭제 -->
+	<delete id="deletePostTasteAll" parameterType="int">
+		delete from
+		post_TASTE
+		where post_id = #{postId}
+	</delete>
+
+	<!-- 게시글에 취향 추가 -->
+	<insert id="addPostTaste" parameterType="map">
+		insert into post_TASTE(post_id, taste_id)
+		values(#{postId}, #{tasteId})
+	</insert>
+
+	<!-- 게시글에 특정 취향을 선택됐는지 확인 -->
+	<select id="isPostTasteSelected" parameterType="map" resultType="int">
+		select count(*)
+		from post_taste
+		where post_id = #{postId} and taste_id = #{tasteId}
+	</select>
+
+	<!-- 카테고리 아이디에 해당하는 취향 목록 가져오기 -->
+	<select id="getTasteByCategoryId" parameterType="int" resultType="tasteDto">
+		select *
+		from CATEGORY_FIELD_TASTE_VIEW
+		where category_id = #{categoryId}
+		order by field_name, taste_name
+	</select>
+
+	<!-- 글에 해당하는 취향 목록 가져오기 -->
+	<select id="getPostTasteList" parameterType="int" resultType="tasteDto">
+		select 
+			V.CATEGORY_ID, V.CATEGORY_NAME, V.FIELD_ID,
+			V.FIELD_NAME, V.TASTE_ID, V.TASTE_NAME
+		from 
+			post_taste pt join CATEGORY_FIELD_TASTE_VIEW v
+		on 
+			PT.TASTE_ID = V.TASTE_ID
+		where
+			PT.POST_ID = #{postId}
+		order by 
+			category_name, field_name, taste_name
+	</select>
+	
+	<!-- 카테고리 가져오기 -->
+	<select id="getCategory" resultType="tasteDto">
+		select * 
+		from CATEGORY
+    order by category_id
+	</select>
+	
+	<!-- 카테고리 아이디로 카테고리 이름 가져오기 -->
+	<select id="getCategoryName" parameterType="int" resultType="String">
+		select category_name
+		from CATEGORY
+		where category_id = #{categoryId}
+	</select>
+
+	<!-- 모든 취향 목록 가져오기 -->
+	<select id="getCategoryFieldTasteAll" resultType="tasteDto">
+		select *
+		from
+		CATEGORY_FIELD_TASTE_VIEW
+		order by category_name, field_name, taste_name
+	</select>
+
+	<!-- 회원의 취향 목록 가져오기 -->
+	<select id="getMemberTasteAll" parameterType="String"
+		resultType="tasteDto">
+		select 
+			V.CATEGORY_ID, V.CATEGORY_NAME, V.FIELD_ID,
+			V.FIELD_NAME, V.TASTE_ID, V.TASTE_NAME
+		from 
+			member_taste mt join CATEGORY_FIELD_TASTE_VIEW v
+		on
+			MT.TASTE_ID = V.TASTE_ID
+		where
+			MT.MEMBER_ID = #{memberId}
+		order by 
+			category_name, field_name, taste_name
+	</select>
+
+	<!-- 회원의 모든 취향 삭제 -->
+	<delete id="deleteMemberTasteAll" parameterType="String">
+		delete from
+		MEMBER_TASTE
+		where member_id = #{memberId}
+	</delete>
+
+	<!-- 회원의 취향 추가 -->
+	<insert id="addMemberTaste" parameterType="map">
+		insert into MEMBER_TASTE(member_id, taste_id)
+		values(#{memberId}, #{tasteId})
+	</insert>
+
+	<!-- 회원이 특정 취향을 선택했는지 확인 -->
+	<select id="isMemberTasteSelected" parameterType="map" resultType="int">
+		select count(*)
+		from member_taste
+		where member_id = #{memberId} and taste_id = #{tasteId}
+	</select>
+</mapper>

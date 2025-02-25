@@ -1,0 +1,246 @@
+section {
+  margin: 50px auto 100px;
+  height: 100%;
+  width: 440px;
+  border: 1px solid #343231;
+  border-radius: 20px;
+  box-shadow: -2px 2px 0px 0px #343231;
+  padding: 40px;
+}
+
+section h1 {
+  margin-bottom: 20px;
+}
+
+.msg {
+
+  font-size: 0.9em;
+  background-color: #fdadc6;
+  color: black;
+  box-shadow: -2px 2px 0px 0px #343231;
+}
+
+
+
+
+/* 아이디------------------------------------- */
+.id-div {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 100px 190px 100px 20px;
+  grid-template-areas: 'a b c d'
+    'e e e e';
+  align-items: center;
+
+}
+
+
+.id-div label[for="id-input"] {
+  grid-area: a;
+}
+
+.id-div #id-input {
+  grid-area: b;
+}
+
+.id-div .id-check-btn {
+  grid-area: c;
+  font-size: 1em;
+  padding: 10px;
+}
+
+.id-div .check {
+  grid-area: d;
+}
+
+.id-div .msg {
+  grid-area: e;
+}
+
+/* 비밀번호 ------------------------------------- */
+.password-div {
+  display: grid;
+  column-gap: 10px;
+  row-gap: 5px;
+  grid-template-columns: 100px 300px 20px;
+  grid-template-areas:
+    'a b c'
+    'd d d'
+    'e f g'
+    'h h h';
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+
+
+.password-div label[for="password-input"] {
+  grid-area: a;
+}
+
+.password-div input#password-input {
+  grid-area: b;
+}
+
+.password-div .check:first-of-type {
+  grid-area: c;
+}
+
+.password-div .msg:nth-of-type(2) {
+  grid-area: d;
+}
+
+.password-div label[for="password-input2"] {
+  grid-area: e;
+}
+
+.password-div #password-input2 {
+  grid-area: f;
+}
+
+.password-div .check:nth-of-type(3) {
+  grid-area: g;
+}
+
+.password-div .msg:nth-of-type(4) {
+  grid-area: h;
+}
+
+/*  이름-------------------------------------- */
+.name-div {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 100px 300px 20px;
+  grid-template-areas:
+    'a b c'
+    'd d d';
+
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+
+.name-div label[for="name-input"] {
+  grid-area: a;
+}
+
+.name-div input#name-input {
+  grid-area: b;
+}
+
+.name-div .check {
+  grid-area: c;
+}
+
+.name-div .msg {
+  grid-area: d;
+}
+
+/* 성별--------------------------- */
+.gender-div {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 100px 145px 145px 20px;
+  grid-template-areas: 'a b c d';
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.gender-div .styled-radio {
+  padding: 10px 57.1px;
+}
+
+.gender-div label[for="female"] {
+  grid-area: a;
+}
+
+.gender-div div:first-of-type {
+  grid-area: b;
+}
+
+.gender-div div:last-of-type {
+  grid-area: c;
+}
+
+/* 생년월일--------------------------- */
+.birth-div {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 100px 104px 88px 88px 20px;
+  grid-template-areas: 'a b c d e';
+  align-items: center;
+
+  margin-bottom: 10px;
+}
+
+
+
+.birth-div label[for="year-select"] {
+  grid-area: a;
+}
+
+.birth-div div:first-of-type {
+  grid-area: b;
+}
+
+.birth-div div:nth-of-type(2) {
+  grid-area: c;
+}
+
+.birth-div div:nth-of-type(3) {
+  grid-area: d;
+}
+
+/*  이메일-------------------------------------- */
+.email-div {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 100px 300px 20px;
+  grid-template-areas:
+    'a b c'
+    'd d d';
+
+  align-items: center;
+
+}
+
+
+.email-div label[for="email-input"] {
+  grid-area: a;
+}
+
+.email-div input#email-input {
+  grid-area: b;
+}
+
+.email-div .check {
+  grid-area: c;
+}
+
+.email-div .msg {
+  grid-area: d;
+}
+
+/*버튼들---------------------------------*/
+.button-div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 7px;
+  margin: 10px 0;
+}
+
+.button-div input[type="reset"] {
+  background-color: #ECE9E2;
+}
+
+.button-div input[type="submit"] {
+
+  text-align: center;
+}
+
+
+/* .button-div>* {
+  background-color: rgba(0, 0, 255, 0.1);
+  border: 1px solid blue;
+} */

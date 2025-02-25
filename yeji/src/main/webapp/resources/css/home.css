@@ -1,0 +1,133 @@
+#taste-section {
+  display: flex;
+  position: relative;
+  height: 90vh;
+  flex-direction: column;
+
+  justify-content: space-around;
+}
+
+#taste-section>div:first-of-type {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  height: 30vh;
+  margin: 0 8%;
+  border: 1px solid #343231;
+  border-radius: 20px;
+  box-shadow: -2px 2px 0px 0px #343231;
+}
+
+/*태그들*/
+#tags-container {
+
+  /* 절대 위치 설정 */
+  left: -35px;
+
+  /* 왼쪽 끝으로 맞춤 */
+  width: 100vw;
+  /* 화면의 전체 너비로 설정 */
+
+  overflow: hidden;
+
+  position: relative;
+
+  white-space: nowrap;
+
+  display: flex;
+  align-items: center;
+}
+
+.tags {
+  display: flex;
+
+  white-space: nowrap;
+
+  position: relative;
+
+}
+
+.tag {
+  margin-right: 3px;
+
+  padding: 5px 10px;
+
+  border: 1px solid #343231;
+  border-radius: 22px;
+  font-size: 1.1em;
+
+}
+
+/* 첫 번째 배경색 */
+.tag:nth-child(3n+1) {
+  background-color: #F7D3D3;
+  /* 첫 번째 색 */
+}
+
+/* 두 번째 배경색 */
+.tag:nth-child(3n+2) {
+  background-color: #e4f0e6;
+  /* 두 번째 색 */
+}
+
+/* 세 번째 배경색 */
+.tag:nth-child(3n) {
+  background-color: #e2d8fa;
+  /* 세 번째 색 */
+}
+
+.categoryName {
+  font-weight: 500;
+}
+
+#post-section {
+  display: flex;
+  height: 50vh;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: column;
+  margin-bottom: 16%;
+  border: 1px solid #343231;
+  border-radius: 20px;
+  box-shadow: -2px 2px 0px 0px #343231;
+}
+
+#post-section form {
+
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+form select[name="cid"] {
+  background-color: #e2d8fa !important;
+
+}
+
+form select[name="so"] {
+  background-color: #e4f0e6 !important;
+
+}
+
+
+
+form .button {
+  font-weight: 500 !important;
+}
+
+
+
+
+
+
+#post-section .description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  justify-content: space-evenly;
+}
